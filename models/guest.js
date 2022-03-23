@@ -5,7 +5,8 @@ const guestSchema = new mongoose.Schema(
         FirstName: String,
         LastName: String,
         Email: String,
-        isAttending: String
+        isAttending: String,
+        Qty: Number
     }
 );
 
