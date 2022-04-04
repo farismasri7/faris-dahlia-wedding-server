@@ -6,6 +6,7 @@ const guestSchema = new mongoose.Schema(
         LastName: String,
         Email: String,
         isAttending: String,
+        rooms: Number,
         Qty: Number
     }
 );
