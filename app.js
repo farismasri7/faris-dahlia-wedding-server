@@ -50,6 +50,9 @@ session.cookie.secure = true;
 
 app.use('/guests', guestsController);
 app.use('/admin', adminController);
+app.get('/health', (req,res) => {
+    res.status(200).end('<h1> healthy </h1>')
+})
 
 const listener = () => {
     console.log(`Listening on port ${port}`);
