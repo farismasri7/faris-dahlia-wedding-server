@@ -87,7 +87,7 @@ async function sendEmail(email, subject, replacements) {
     region: region,
   });
 
-  client.getSecretValue({ SecretId: secretName }, function (err, data) {
+  client.getSecretValue({ SecretId: secretName }, async function (err, data) {
     if (err) {
       if (err.code === "DecryptionFailureException")
         // Secrets Manager can't decrypt the protected secret text using the provided KMS key.
@@ -129,13 +129,13 @@ async function sendEmail(email, subject, replacements) {
     });
 
     const mailOptions = {
-      from: "farisanddahlia@gmail.com",
+      from: "Faris & Dahlia",
       to: email,
       subject: subject,
       text: "text",
       html: htmlToSend,
     };
-    const info = transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
     console.log("Message sent: %s", info.messageId);
     console.log("Preview URL: %s", "https://mailtrap.io/inboxes/test/messages/");
   });
